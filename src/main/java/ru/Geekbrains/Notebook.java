@@ -1,20 +1,27 @@
 package ru.Geekbrains;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Notebook {
-    private static Random r;
+public class Notebook implements Comparable<Notebook>{
+    public static Random r;
     private int id;
     private static int counter = 1;
     private String model;
     private String os;
     private String color;
-    private String screen;
+    private int screen;
     private String cpu;
     private String gpu;
-    private String ram;
-    private String ssd;
+    private int ram;
+    private int ssd;
     private int price;
+
+    static {
+        Notebook.r = new Random();
+    }
+
 
     public int getId() {
         return id;
@@ -48,11 +55,11 @@ public class Notebook {
         this.color = color;
     }
 
-    public String getScreen() {
+    public int getScreen() {
         return screen;
     }
 
-    public void setScreen(String screen) {
+    public void setScreen(int screen) {
         this.screen = screen;
     }
 
@@ -72,19 +79,19 @@ public class Notebook {
         this.gpu = gpu;
     }
 
-    public String getRam() {
+    public int getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(int ram) {
         this.ram = ram;
     }
 
-    public String getSsd() {
+    public int getSsd() {
         return ssd;
     }
 
-    public void setSsd(String ssd) {
+    public void setSsd(int ssd) {
         this.ssd = ssd;
     }
 
@@ -108,8 +115,8 @@ public class Notebook {
      * @param price - Стоимость
      */
     public Notebook(String model, String os,
-                    String color, String screen, String cpu,
-                    String gpu, String ram, String ssd, int price) {
+                    String color, int screen, String cpu,
+                    String gpu, int ram, int ssd, int price) {
         this.id = counter++;
         this.model = model;
         this.os = os;
@@ -123,40 +130,49 @@ public class Notebook {
     }
 
     public Notebook() {
-        this (randomNotebook("model"), randomNotebook("os"),
-                randomNotebook("color"), randomNotebook("screen"),
-                randomNotebook("cpu"), randomNotebook("gpu"),
-                randomNotebook("ram"), randomNotebook("ssd"),
-                randomPrice());
+        this (randomString("model"), randomString("os"),
+                randomString("color"), randomInt("screen"),
+                randomString("cpu"), randomString("gpu"),
+                randomInt("ram"), randomInt("ssd"),
+                randomInt("price"));
     }
 
-    private static String randomNotebook (String field) {
-        String[] listModel = {"Asus", "Lenovo", "MSI", "Irbis", "Digma"};
-        String[] listOs = {"Win10", "Win10 Pro", "Win11", "Win11 Pro", "Без OS"};
-        String[] listColor = {"Black", "Silver", "White", "Green", "Yellow"};
-        String[] listScreen = {"13'", "14'", "15'", "16'", "17'"};
-        String[] listCpu = {"i3", "i5", "i7", "Ryzen5", "Ryzen7"};
-        String[] listGpu = {"GTX3050", "GTX3060", "GTX3070", "GTX3080", "Встроенная"};
-        String[] listRam = {"4gb", "8gb", "16gb"};
-        String[] listSsd = {"120gb", "240gb", "500gb", "1tb"};
+    public static String[] listModel = {"Asus", "Lenovo", "MSI", "Irbis", "Digma"};
+    public static String[] listOs = {"Win10", "Win10 Pro", "Win11", "Win11 Pro", "Без OS"};
+    public static String[] listColor = {"Black", "Silver", "White", "Green", "Yellow"};
+    public static int[] listScreen = {13, 14, 15, 16, 17};
+    public static String[] listCpu = {"i3", "i5", "i7", "Ryzen5", "Ryzen7"};
+    public static String[] listGpu = {"GTX3050", "GTX3060", "GTX3070", "GTX3080", "Встроенная"};
+    public static int[] listRam = {4, 8, 16};
+    public static int[] listSsd = {120, 240, 500, 1000};
+
+    private static String randomString (String field) {
         return switch (field) {
             case "model" -> listModel[r.nextInt(listModel.length)];
             case "os" -> listOs[r.nextInt(listOs.length)];
             case "color" -> listColor[r.nextInt(listColor.length)];
-            case "screen" -> listScreen[r.nextInt(listScreen.length)];
             case "cpu" -> listCpu[r.nextInt(listCpu.length)];
-            case "gpu" -> listGpu[r.nextInt(listGpu.length)];
-            case "ram" -> listRam[r.nextInt(listRam.length)];
-            default -> listSsd[r.nextInt(listSsd.length)];
+            default -> listGpu[r.nextInt(listGpu.length)];
         };
     }
 
-    private static int randomPrice () {
-        return r.nextInt(43254, 186532);
+    private static int randomInt (String field) {
+        return switch (field) {
+            case "screen" -> listScreen[r.nextInt(listScreen.length)];
+            case "ram" -> listRam[r.nextInt(listRam.length)];
+            case "ssd" -> listSsd[r.nextInt(listSsd.length)];
+            default -> r.nextInt(43254, 186532);
+        };
     }
 
     @Override
     public String toString() {
-        return "ID: %d, Model: %s";
+        return String.format("ID: %d, Model: %s, OS: %s, Color: %s, Screen: %d\", CPU: %s, GPU: %s, RAM: %dgb, SSD: %dgb, Price: %d руб.",
+        this.id, this.model, this.os, this.color, this.screen, this.cpu, this.gpu, this.ram, this.ssd, this.price);
+    }
+
+    @Override
+    public int compareTo(Notebook o) {
+        return Integer.compare(this.id, o.id);
     }
 }
