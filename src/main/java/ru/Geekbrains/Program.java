@@ -1,17 +1,12 @@
 package ru.Geekbrains;
 
+import java.util.Random;
+
 public class Program {
-package org.example;
+    public static void main(String[] args) {
+//        Notebook k1 = new Notebook();
+        Random r = new Random();
+        System.out.println(r.nextInt(1));
 
-import java.util.ArrayList;
-import java.util.List;
-
-    public class DataNotebook {
-        public static List<Params> dataNotebook= new ArrayList<>();
-
-        public static void main(String[] args) {
-
-        }
     }
-}
 }
