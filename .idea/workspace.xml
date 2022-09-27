@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="669520ff-c5d4-4230-9d7d-d890f2a95d73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_09_2022_22_13__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_09_2022_22_13__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_09_2022_16_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_09_2022_16_55__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/Geekbrains/Notebook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/Geekbrains/Notebook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/Geekbrains/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/Geekbrains/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/Geekbrains/Notebook.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/Geekbrains/Notebook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/Geekbrains/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/Geekbrains/Program.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +31,18 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FH11XA0dic7cFs2CJyrweBmb6O" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Обучение GB/006 Знакомство с языком Java/Java_HomeWork_22-09-19"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.Geekbrains.Program" />

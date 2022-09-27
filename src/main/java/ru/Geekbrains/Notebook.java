@@ -1,5 +1,6 @@
 package ru.Geekbrains;
 
+import java.util.Map;
 import java.util.Random;
 
 public class Notebook implements Comparable<Notebook>{
@@ -144,10 +145,6 @@ public class Notebook implements Comparable<Notebook>{
                 randomInt("price"));
     }
 
-    public Boolean isSorted () {
-        return false;
-    }
-
     private static String randomString (String field) {
         return switch (field) {
             case "model" -> listModel[r.nextInt(listModel.length)];
@@ -165,6 +162,61 @@ public class Notebook implements Comparable<Notebook>{
             case "ssd" -> listSsd[r.nextInt(listSsd.length)];
             default -> r.nextInt(43254, 186532);
         };
+    }
+
+    public Boolean isSorted (Map<Integer, Object> mapForSort) {
+        int stopFlag = 1;
+        for (Integer integer : mapForSort.keySet()) {
+            switch (integer) {
+                case 1:
+                    if (!this.model.equals(mapForSort.get(integer))) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 2:
+                    if (!this.os.equals(mapForSort.get(integer))) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 3:
+                    if (!this.color.equals(mapForSort.get(integer))) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 4:
+                    if (this.screen < (Integer) mapForSort.get(integer)) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 5:
+                    if (!this.cpu.equals(mapForSort.get(integer))) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 6:
+                    if (!this.gpu.equals(mapForSort.get(integer))) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 7:
+                    if (this.ram < (Integer) mapForSort.get(integer)) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 8:
+                    if (this.ssd < (Integer) mapForSort.get(integer)) {
+                        stopFlag = 0;
+                    }
+                    break;
+                case 9:
+                    if (this.price < (Integer) mapForSort.get(integer)) {
+                        stopFlag = 0;
+                    }
+                    break;
+            }
+            if (stopFlag == 0) return false;
+        }
+        return true;
     }
 
     @Override
