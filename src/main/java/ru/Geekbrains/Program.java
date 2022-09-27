@@ -13,19 +13,20 @@ public class Program {
             notebookList.add(new Notebook());
         }
 
-        TreeSet<Notebook> sortSet = new TreeSet<>();
-        for (Notebook notebook : notebookList) {
-            if (notebook.getCpu().equals("i5")) sortSet.add(notebook);
-        }
-
-        for (Notebook notebook : sortSet) {
-            System.out.println(notebook);
-        }
-
-        getPriority();
+//        TreeSet<Notebook> sortSet = new TreeSet<>();
+//        for (Notebook notebook : notebookList) {
+//            if (notebook.getCpu().equals("i5")) sortSet.add(notebook);
+//        }
+//
+//        for (Notebook notebook : sortSet) {
+//            System.out.println(notebook);
+//        }
+        System.out.println(getPriority());
     }
     public static String getPriority () {
         Scanner scn = new Scanner(System.in);
+        String model, os, color, cpu, gpu;
+        int screen, ram, ssd, price;
         Map<Integer, String> mapCriterion = new TreeMap<>(Map.of(1,"Модель ноутбука",
                                                                  2,"Операционная система",
                                                                  3,"Цвет",
@@ -45,10 +46,23 @@ public class Program {
         switch (choice) {
             case 1:
                 ArrayList<String> listModel = new ArrayList<>(List.of(Notebook.listModel));
+                return getSelection(getMapSelectList(listModel), scn);
+            case 2:
+                ArrayList<String> listOs = new ArrayList<>(List.of(Notebook.listOs));
+                return getSelection(getMapSelectList(listOs), scn);
+            case 3:
+                ArrayList<String> listColor = new ArrayList<>(List.of(Notebook.listColor));
+                return getSelection(getMapSelectList(listColor), scn);
+            case 2:
+                ArrayList<String> listScreen = new ArrayList<>(List.of(Notebook.listOs));
+                return getSelection(getMapSelectList(listOs), scn);
+            case 2:
+                ArrayList<String> listOs = new ArrayList<>(List.of(Notebook.listOs));
+                return getSelection(getMapSelectList(listOs), scn);
+            case 2:
+                ArrayList<String> listOs = new ArrayList<>(List.of(Notebook.listOs));
+                return getSelection(getMapSelectList(listOs), scn);
 
-                while (true) {
-                    printList(listModel, scn);
-                }
 
         }
         return null;
@@ -56,7 +70,7 @@ public class Program {
 
     public static Scanner scn = new Scanner(System.in);
 
-    public static Map<Integer, String> getMap (String[] array) {
+    public static Map<Integer, String> getMapSelectList (ArrayList<String> array) {
         int count = 0;
         Map<Integer, String> resultMap = new TreeMap<>();
         for (String s : array) {
@@ -64,15 +78,13 @@ public class Program {
         }
         return resultMap;
     }
-    public static void printList (Map<Integer, String> mapList, Scanner scn) {
+    public static String getSelection (Map<Integer, String> mapList, Scanner scn) {
         for (Map.Entry<Integer, String> field : mapList.entrySet()) {
             System.out.printf("%d: %s%n", field.getKey(), field.getValue());
         }
-        System.out.print("Выберете модель: ");
-        int choiceModel = scn.nextInt();
-        String model = mapList.get(choiceModel - 1);
-        mapList.remove(choiceModel - 1);
-        mapList.
+        System.out.print("Выбор: ");
+        int choice = scn.nextInt();
+        return mapList.get(choice);
     }
 //    public static void sortNotebook (args)
 }

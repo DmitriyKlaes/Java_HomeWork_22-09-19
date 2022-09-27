@@ -1,7 +1,5 @@
 package ru.Geekbrains;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Notebook implements Comparable<Notebook>{
@@ -17,6 +15,15 @@ public class Notebook implements Comparable<Notebook>{
     private int ram;
     private int ssd;
     private int price;
+
+    public static final String[] listModel = {"Asus", "Lenovo", "MSI", "Irbis", "Digma"};
+    public static final String[] listOs = {"Win10", "Win10 Pro", "Win11", "Win11 Pro", "Без OS"};
+    public static final String[] listColor = {"Black", "Silver", "White", "Green", "Yellow"};
+    public static final int[] listScreen = {13, 14, 15, 16, 17};
+    public static final String[] listCpu = {"i3", "i5", "i7", "Ryzen5", "Ryzen7"};
+    public static final String[] listGpu = {"GTX3050", "GTX3060", "GTX3070", "GTX3080", "Встроенная"};
+    public static final int[] listRam = {4, 8, 16};
+    public static final int[] listSsd = {120, 240, 500, 1000};
 
     static {
         Notebook.r = new Random();
@@ -137,14 +144,9 @@ public class Notebook implements Comparable<Notebook>{
                 randomInt("price"));
     }
 
-    public static String[] listModel = {"Asus", "Lenovo", "MSI", "Irbis", "Digma"};
-    public static String[] listOs = {"Win10", "Win10 Pro", "Win11", "Win11 Pro", "Без OS"};
-    public static String[] listColor = {"Black", "Silver", "White", "Green", "Yellow"};
-    public static int[] listScreen = {13, 14, 15, 16, 17};
-    public static String[] listCpu = {"i3", "i5", "i7", "Ryzen5", "Ryzen7"};
-    public static String[] listGpu = {"GTX3050", "GTX3060", "GTX3070", "GTX3080", "Встроенная"};
-    public static int[] listRam = {4, 8, 16};
-    public static int[] listSsd = {120, 240, 500, 1000};
+    public Boolean isSorted () {
+        return false;
+    }
 
     private static String randomString (String field) {
         return switch (field) {
